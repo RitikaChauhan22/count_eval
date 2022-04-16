@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useMemo} from 'react';
+import Select from "react-select";
+import countryList from "react-select-country-list";
 
 function App() {
+
+  const [value, setValue] = useState("")
+
+  const options = useMemo(() => countryList().getData(), []);
+
+  const changeHandler = (value) => {
+    setValue(value)
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Select options={options} value={value} onChange={changeHandler}/>
+      // <div>
+      // hello
+      // </div>
   );
+
 }
 
 export default App;
