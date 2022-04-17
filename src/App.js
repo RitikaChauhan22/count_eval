@@ -1,6 +1,7 @@
 import React, { useState, useMemo} from 'react';
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import "./App.css";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
   };
 
   return (
-      <Select options={options} value={value} onChange={changeHandler}/>
+      <Select id="country" options={options} value={value} onChange={changeHandler}/>
       // <div>
       // hello
       // </div>
